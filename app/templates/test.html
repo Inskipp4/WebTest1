@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post">
+        <ul class="list-group">
+        {% for question in form.question_l %}
+            <li class="list-group-item">{{question.question}}</li>
+
+            {% for answer in form.question_ans %}
+                {% if answer.question_id == question.id %}
+                <div class="row">
+                    <div class="col-xs-1"></div>
+                    <div class="col-md-8">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="{{question.id}}" id="{{answer.id}}" value="{{answer.id}}">
+                          <label class="form-check-label" for="{{answer.id}}">
+                            {{answer.text_ans}}
+                          </label>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        </ul>
+        <p class="text-center">
+            <input class="btn btn-primary btn-lg" id="submit" name="submit" type="submit" value="Проверить">
+        </p>
+    </form>
+{% endblock %}

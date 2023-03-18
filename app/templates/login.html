@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block app_content %}
+<div class="row">
+    <div class="col-md-4">
+        <h1>Авторизация</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+            {{ wtf.quick_form(form) }}
+    </div>
+</div>
+<div class="row">
+    <p>
+
+    </p>
+</div>
+<div class="row">
+        <div class="col-md-4">
+            <div class="alert alert-success" role="alert">
+                <p>Первый раз? <a href="{{ url_for('register') }}">Нажмите для регистрации!</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
